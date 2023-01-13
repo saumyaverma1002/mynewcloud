@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: vprofile vpc
+      ec2_vpc_net:
+        name: vprofile_vpc
+        region: us-east-1
+        cidr_block: 10.10.0.0/16
+      register:  vpc_out
+
+    - debug:
+        var: vpc_out
+
+

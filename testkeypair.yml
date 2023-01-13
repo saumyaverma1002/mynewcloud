@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: sample key pair
+      ec2_key:
+        name: test_key
+        region: us-east-1
+      register:  key_output
+
+    - debug:
+        var: key_output
+
+    - name: store login key
+      copy:
+        content: "{{key_output.key.private_key}}"
+        dest: ./sample-key.pem
+      when: key_output.changed
