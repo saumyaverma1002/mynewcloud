@@ -1,7 +1,11 @@
 ---
 - hosts: localhost
   connection: local
+
   tasks:
+    - name: Import vpc variables
+      include_vars: vars/vpc_setup
+
     - name: vprofile vpc
       ec2_vpc_net:
         name: "{{vpc}}"
