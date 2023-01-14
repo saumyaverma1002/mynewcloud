@@ -21,6 +21,7 @@
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{pubsub1-cidr}}"
+        region: us-east-1
       register: pubsub1_out
 
     - name: Create public subnet
@@ -28,6 +29,7 @@
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{pubsub2-cidr}}"
+        region: us-east-1
       register: pubsub2_out
 
     - name: Create private subnet
@@ -35,6 +37,7 @@
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{privsub1-cidr}}"
+        region: us-east-1
       register: privsub1_out
 
     - name: Create private subnet
@@ -42,6 +45,7 @@
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{privsub2-cidr}}"
+        region: us-east-1
       register: privsub2_out
 
 
