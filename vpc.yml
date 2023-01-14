@@ -4,9 +4,9 @@
   tasks:
     - name: vprofile vpc
       ec2_vpc_net:
-        name: {{vpc_name}}
+        name: "{{vpc_name}}"
         region: us-east-1
-        cidr_block: {{vpc_cidr}}
+        cidr_block: "{{vpc_cidr}}"
       register:  vpc_out
 
     - debug:
@@ -15,29 +15,29 @@
     - name: Create public subnet
       ec2_vpc_subnet:
         state: present
-        vpc_id: {{vpc_out.vpc.id}}
-        cidr: {{pubsub1-cidr}}
+        vpc_id: "{{vpc_out.vpc.id}}"
+        cidr: "{{pubsub1-cidr}}"
       register: pubsub1
 
     - name: Create public subnet
       ec2_vpc_subnet:
         state: present
-        vpc_id: {{vpc_out.vpc.id}}
-        cidr: {{pubsub2-cidr}}
+        vpc_id: "{{vpc_out.vpc.id}}"
+        cidr: "{{pubsub2-cidr}}"
       register: pubsub2
 
     - name: Create private subnet
       ec2_vpc_subnet:
         state: present
-        vpc_id: {{vpc_out.vpc.id}}
-        cidr: {{privsub1-cidr}}
+        vpc_id: "{{vpc_out.vpc.id}}"
+        cidr: "{{privsub1-cidr}}"
       register: privsub1
 
     - name: Create private subnet
       ec2_vpc_subnet:
         state: present
-        vpc_id: {{vpc_out.vpc.id}}
-        cidr: {{privsub2-cidr}}
+        vpc_id: "{{vpc_out.vpc.id}}"
+        cidr: "{{privsub2-cidr}}"
       register: privsub2
 
 
