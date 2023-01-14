@@ -22,6 +22,7 @@
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{pubsub1-cidr}}"
         map_public: yes
+        az: "{{zone1}}"
         region: us-east-1
       register: pubsub1_out
 
@@ -30,6 +31,7 @@
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{pubsub2-cidr}}"
+        az: "{{zone2}}"
         region: us-east-1
         map_public: yes
       register: pubsub2_out
@@ -40,6 +42,7 @@
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{privsub1-cidr}}"
         region: us-east-1
+        az: "{{zone1}}"
       register: privsub1_out
 
     - name: Create private subnet
@@ -48,4 +51,5 @@
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{privsub2-cidr}}"
         region: us-east-1
+        az: "{{zone2}}"
       register: privsub2_out
