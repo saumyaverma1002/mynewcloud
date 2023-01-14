@@ -4,7 +4,7 @@
   tasks:
     - name: vprofile vpc
       ec2_vpc_net:
-        name: "{{vpc_name}}"
+        name: "{{vpc}}"
         region: us-east-1
         cidr_block: "{{vpc_cidr}}"
       register:  vpc_out
