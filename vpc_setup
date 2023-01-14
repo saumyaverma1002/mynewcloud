@@ -6,7 +6,7 @@ vpc_cidr: 10.10.0.0/16
 # Subnet CIDR
 pubsub1-cidr: 10.10.1.0/24
 pubsub2-cidr: 10.10.2.0/24
-privsub1-cidr: 10.10.3.0/24KK
+privsub1-cidr: 10.10.3.0/24
 privsub2-cidr: 10.10.4.0/24
 
 # Region
