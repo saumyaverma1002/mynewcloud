@@ -6,10 +6,40 @@
       ec2_vpc_net:
         name: vprofile_vpc
         region: us-east-1
-        cidr_block: 10.10.0.0/16
+        cidr_block: {{vpc_cidr}}
       register:  vpc_out
 
     - debug:
         var: vpc_out
+
+    - name: Create public subnet
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: {{vpc_out.vpc.id}}
+        cidr: {{pubsub1-cidr}}
+      register: pubsub1
+
+    - name: Create public subnet
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: {{vpc_out.vpc.id}}
+        cidr: {{pubsub2-cidr}}
+      register: pubsub2
+
+    - name: Create private subnet
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: {{vpc_out.vpc.id}}
+        cidr: {{privsub1-cidr}}
+      register: privsub1
+
+    - name: Create private subnet
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: {{vpc_out.vpc.id}}
+        cidr: {{privsub2-cidr}}
+      register: privsub2
+
+
 
 
