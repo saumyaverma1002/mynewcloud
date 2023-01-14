@@ -23,4 +23,4 @@
         state: "{{ state }}"
         cidr: "{{ pubsub1-cidr }}"
         map_public: yes
-      register: pubsub1_out
+      register: pubsub1out
