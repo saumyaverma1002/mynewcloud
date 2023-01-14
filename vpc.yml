@@ -21,28 +21,28 @@
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{pubsub1-cidr}}"
-      register: pubsub1
+      register: pubsub1_out
 
     - name: Create public subnet
       ec2_vpc_subnet:
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{pubsub2-cidr}}"
-      register: pubsub2
+      register: pubsub2_out
 
     - name: Create private subnet
       ec2_vpc_subnet:
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{privsub1-cidr}}"
-      register: privsub1
+      register: privsub1_out
 
     - name: Create private subnet
       ec2_vpc_subnet:
         state: present
         vpc_id: "{{vpc_out.vpc.id}}"
         cidr: "{{privsub2-cidr}}"
-      register: privsub2
+      register: privsub2_out
 
 
 
